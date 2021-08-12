@@ -2,6 +2,14 @@
 
 ## Development requirements
 
+* CLI
+  * [git >= 2.9](https://git-scm.com/)
+    * Make sure git hooks are correctly set:
+
+    ```bash
+    git config core.hooksPath .githooks
+    ```
+
 * SDK
   * [.NET >= 5.0](https://dotnet.microsoft.com/)
 * IDE

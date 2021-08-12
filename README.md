@@ -13,6 +13,7 @@ Name | Technology stack | Role
 
 ### Open topics
 
+* Health check in docker compose definition
 * Kubernetes definition (with Helm chart)
 * InMemory database (with associated integration testing) and switch to async actions
 * OpenTelemetry
@@ -61,7 +62,7 @@ curl -k https://localhost:5001/health
 
 ### How to run containers
 
-* Edit manually the host file of your system (on Windows: `C:\Windows\System32\drivers\etc\hosts`), to add the following line
+* Edit manually the host file of the system (on Windows: `C:\Windows\System32\drivers\etc\hosts`) to add the following line
 
 ```ini
 127.0.0.1 webapi.localhost
@@ -83,13 +84,13 @@ docker-compose -f docker-compose.dev.yml up -d --scale webapi=3
 docker-compose -f docker-compose.dev.yml down
 ```
 
-* Open [webapi.localhost:8000/swagger](http://webapi.localhost:8000/swagger) in your browser
+* Open [webapi.localhost:8000/swagger](http://webapi.localhost:8000/swagger) in the browser
 
 ## operation
 
 ### How to create Docker images
 
-* From the command line (replace `devprofr` with your container registry name)
+* From the command line (replace `devprofr` with the container registry name)
 
 ```bash
 docker build . -t devprofr/allautomateddotnetwebapi -f src/WebApi/Dockerfile --no-cache
@@ -97,7 +98,9 @@ docker build . -t devprofr/allautomateddotnetwebapi -f src/WebApi/Dockerfile --n
 
 ### How to setup an environment
 
-* Edit manually the host file of your system, to add the following line
+* Review `docker-compose.yml` to match your need (container registry, ASP.NET configuration from environment variables, reverse proxy)
+
+* Edit manually the host file of the system to add the following line
 
 ```ini
 127.0.0.1 webapi.localhost
@@ -115,3 +118,5 @@ docker-compose up -d --scale webapi=3
 # shutdown
 docker-compose down
 ```
+
+* Open [webapi.localhost:8000/health](http://webapi.localhost:8000/health) in the browser

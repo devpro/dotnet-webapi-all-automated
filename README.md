@@ -13,6 +13,7 @@ Name | Technology stack | Role
 
 ### Open topics
 
+* Kubernetes definition (with Helm chart)
 * InMemory database (with associated integration testing) and switch to async actions
 * OpenTelemetry
 * Tekton
@@ -56,4 +57,61 @@ dotnet run --project src/WebApi
 curl -k https://localhost:5001/health
 ```
 
-### How to package
+* Use Swagger web UI: open [localhost:5001/swagger](https://localhost:5001/swagger) in a browser
+
+### How to run containers
+
+* Edit manually the host file of your system (on Windows: `C:\Windows\System32\drivers\etc\hosts`), to add the following line
+
+```ini
+127.0.0.1 webapi.localhost
+```
+
+* From the command line
+
+```bash
+# create image
+docker-compose -f docker-compose.dev.yml build
+
+# create containers
+docker-compose -f docker-compose.dev.yml up -d
+
+# scale up or down
+docker-compose -f docker-compose.dev.yml up -d --scale webapi=3
+
+# shutdown
+docker-compose -f docker-compose.dev.yml down
+```
+
+* Open [webapi.localhost:8000/swagger](http://webapi.localhost:8000/swagger) in your browser
+
+## operation
+
+### How to create Docker images
+
+* From the command line (replace `devprofr` with your container registry name)
+
+```bash
+docker build . -t devprofr/allautomateddotnetwebapi -f src/WebApi/Dockerfile --no-cache
+```
+
+### How to setup an environment
+
+* Edit manually the host file of your system, to add the following line
+
+```ini
+127.0.0.1 webapi.localhost
+```
+
+* From the command line
+
+```bash
+# create containers
+docker-compose up -d
+
+# scale up or down
+docker-compose up -d --scale webapi=3
+
+# shutdown
+docker-compose down
+```

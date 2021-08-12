@@ -22,7 +22,8 @@ namespace Devpro.Examples.WebApiAllAutomated.WebApi
             services.AddHealthChecks();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi", Version = "v1" });
+                c.SwaggerDoc(_configuration["Application:Version"],
+                    new OpenApiInfo { Title = _configuration["Application:Name"], Version = _configuration["Application:Version"] });
             });
         }
 
@@ -32,10 +33,15 @@ namespace Devpro.Examples.WebApiAllAutomated.WebApi
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint($"/swagger/{_configuration["Application:Version"]}/swagger.json",
+                     $"{_configuration["Application:Name"]} {_configuration["Application:Version"]}"));
             }
 
-            app.UseHttpsRedirection();
+            if (bool.TryParse(_configuration["Application:EnforceHttps"], out var isHttpsEnforced) && isHttpsEnforced)
+            {
+                app.UseHttpsRedirection();
+            }
+
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

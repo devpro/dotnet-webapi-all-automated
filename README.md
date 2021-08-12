@@ -86,7 +86,7 @@ docker-compose -f docker-compose.dev.yml down
 
 * Open [webapi.localhost:8000/swagger](http://webapi.localhost:8000/swagger) in the browser
 
-## operation
+## Operation
 
 ### How to create Docker images
 

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Devpro.Examples.WebApiAllAutomated.WebApi.Dto</AssemblyName>
+    <RootNamespace>Devpro.Examples.WebApiAllAutomated.WebApi.Dto</RootNamespace>
+    <ProjectGuid>{1F379702-79AB-48BB-A590-6FE5CF909705}</ProjectGuid>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+</Project>

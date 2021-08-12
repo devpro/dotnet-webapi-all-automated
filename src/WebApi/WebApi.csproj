@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Devpro.Examples.WebApiAllAutomated.WebApi</AssemblyName>
+    <RootNamespace>Devpro.Examples.WebApiAllAutomated.WebApi</RootNamespace>
+    <UserSecretsId>43fd4ab3-aa32-4bf8-838f-9f679c374fc7</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <ProjectGuid>{057FC08E-4DA4-480A-93A5-A7B8A847BB75}</ProjectGuid>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApi.Dto\WebApi.Dto.csproj" />
+  </ItemGroup>
+
+</Project>

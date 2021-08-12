@@ -21,7 +21,7 @@ namespace Devpro.Examples.WebApiAllAutomated.WebApi.IntegrationTests.Resources
 
         [Fact]
         [Trait("Mode", "Readonly")]
-        public async Task OfficeUserResource_FindOneById_ReturnsOk()
+        public async Task PodcastResource_FindOneById_ReturnsOk()
         {
             var id = "1234";
             var url = $"/{ResourceEndpoint}/{id}";
@@ -33,7 +33,7 @@ namespace Devpro.Examples.WebApiAllAutomated.WebApi.IntegrationTests.Resources
 
         [Fact]
         [Trait("Mode", "Readonly")]
-        public async Task OfficeUserResource_FindAll_ReturnsOk()
+        public async Task PodcastResource_FindAll_ReturnsOk()
         {
             var url = $"/{ResourceEndpoint}";
 
@@ -43,7 +43,7 @@ namespace Devpro.Examples.WebApiAllAutomated.WebApi.IntegrationTests.Resources
         }
 
         [Fact]
-        public async Task OfficeUserResource_Create_ReturnsOk()
+        public async Task PodcastResource_Create_ReturnsOk()
         {
             var url = $"/{ResourceEndpoint}";
 
